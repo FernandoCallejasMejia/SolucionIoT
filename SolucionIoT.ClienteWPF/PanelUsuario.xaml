@@ -1,0 +1,127 @@
+﻿<Window x:Class="SolucionIoT.ClienteWPF.PanelUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolucionIoT.ClienteWPF"
+        xmlns:models="clr-namespace:SolucionIoT.COMMON.Modelos;assembly=SolucionIoT.COMMON"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        mc:Ignorable="d"
+        Title="Panel de Usuario" Height="450" Width="800">
+    <Window.DataContext>
+        <models:PanelUsuarioModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Dispositivos" Grid.Row="0" Grid.Column="0"/>
+        <Label Content="Grafico" Grid.Row="0" Grid.Column="1"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <Label Content="Control" />
+            <Button x:Name="btnActualizar" Click="btnActualizar_Click" Content="Actualizar Estados" Margin="50,0"/>
+        </StackPanel>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <Label Content="Estado de actuadores: "/>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblR1"/>
+                    <Label x:Name="lblER1"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblR2"/>
+                    <Label x:Name="lblER2"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblR3"/>
+                    <Label x:Name="lblER3"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblR4"/>
+                    <Label x:Name="lblER4"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblBuzzer"/>
+                    <Label x:Name="lblEBuzzer"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblPIR"/>
+                    <Label x:Name="lblEPIR"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+
+        <ListView Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" ItemsSource="{Binding Dispositivos}" x:Name="lstDispositivos" SelectionChanged="lstDispositivos_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="Ubicacion:" Grid.Row="0" Grid.Column="0"/>
+                        <Label Content="{Binding Ubicacion}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                        <Label Content="R1:" Grid.Row="1" Grid.Column="0"/>
+                        <Label Content="{Binding UsoRelevador1}" Grid.Row="1" Grid.Column="1"/>
+
+                        <Label Content="R2:" Grid.Row="1" Grid.Column="2"/>
+                        <Label Content="{Binding UsoRelevador2}" Grid.Row="1" Grid.Column="4"/>
+
+                        <Label Content="R3:" Grid.Row="2" Grid.Column="0"/>
+                        <Label Content="{Binding UsoRelevador3}" Grid.Row="2" Grid.Column="1"/>
+
+                        <Label Content="R4:" Grid.Row="2" Grid.Column="2"/>
+                        <Label Content="{Binding UsoRelevador4}" Grid.Row="2" Grid.Column="3"/>
+
+                        <Label Content="B:" Grid.Row="3" Grid.Column="0"/>
+                        <Label Content="{Binding UsoBuzzer}" Grid.Row="3" Grid.Column="1"/>
+
+                        <Label Content="PIR:" Grid.Row="3" Grid.Column="2"/>
+                        <Label Content="{Binding UbicacionPIR}" Grid.Row="3" Grid.Column="3"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <oxy:PlotView x:Name="plotGrafica" Grid.Row="0" Margin="4" Width="350" HorizontalAlignment="Center"/>
+
+            <DataGrid ItemsSource="{Binding LecturasDelDispositivo}" Grid.Row="1" x:Name="dtgLecturas" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Fecha Hora" Binding="{Binding FechaHora}"/>
+                    <DataGridTextColumn Header="Temperatura C" Binding="{Binding Temperatura}"/>
+                    <DataGridTextColumn Header="Humedad" Binding="{Binding Humedad}"/>
+                    <DataGridTextColumn Header="Luminosidad" Binding="{Binding Luminosidad}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:models="clr-namespace:SolucionIoT.COMMON.Modelos;assembly=SolucionIoT.COMMON"
+            xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+            x:Class="SolucionIoT.ClienteMovil.DispositivoTabbedPage" Title="Dispositivo">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Datos">
+        <ContentPage.BindingContext>
+            <models:PanelUsuarioModel/>
+        </ContentPage.BindingContext>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <oxy:PlotView x:Name="plotGrafica" Grid.Row="0" Margin="4" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <ListView x:Name="lstLecturas" ItemsSource="{Binding LecturasDelDispositivo}" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding FechaHora}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"/>
+                                <Label Text="T=" Grid.Column="0" Grid.Row="1"/>
+                                <Label Text="{Binding Temperatura}" Grid.Column="1" Grid.Row="1"/>
+                                <Label Text="H=" Grid.Column="2" Grid.Row="1"/>
+                                <Label Text="{Binding Humedad}" Grid.Column="3" Grid.Row="1"/>
+                                <Label Text="L=" Grid.Column="4" Grid.Row="1"/>
+                                <Label Text="{Binding Luminosidad}" Grid.Column="5" Grid.Row="1"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage>
+    <ContentPage Title="Control" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Elemento" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Encender" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Apagar" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Button Text="Update" x:Name="btnActualizar" Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" Clicked="btnActualizar_Clicked"/>
+
+            <Label x:Name="lblR1" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+            <Button x:Name="btnR11" Text="On" BackgroundColor="Green" TextColor="White" Grid.Row="1" Grid.Column="1" Clicked="btnR11_Clicked"/>
+            <Button x:Name="btnR10" Text="Off" BackgroundColor="Red" TextColor="White" Grid.Row="1" Grid.Column="2" Clicked="btnR10_Clicked"/>
+            <Label x:Name="lblER1" Grid.Row="1" Grid.Column="3"/>
+
+            <Label x:Name="lblR2" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
+            <Button x:Name="btnR21" Text="On" BackgroundColor="Green" TextColor="White" Grid.Row="2" Grid.Column="1" Clicked="btnR21_Clicked"/>
+            <Button x:Name="btnR20" Text="Off" BackgroundColor="Red" TextColor="White" Grid.Row="2" Grid.Column="2" Clicked="btnR20_Clicked"/>
+            <Label x:Name="lblER2" Grid.Row="2" Grid.Column="3"/>
+
+            <Label x:Name="lblR3" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+            <Button x:Name="btnR31" Text="On" BackgroundColor="Green" TextColor="White" Grid.Row="3" Grid.Column="1" Clicked="btnR31_Clicked"/>
+            <Button x:Name="btnR30" Text="Off" BackgroundColor="Red" TextColor="White" Grid.Row="3" Grid.Column="2" Clicked="btnR30_Clicked"/>
+            <Label x:Name="lblER3" Grid.Row="3" Grid.Column="3"/>
+
+            <Label x:Name="lblR4" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+            <Button x:Name="btnR41" Text="On" BackgroundColor="Green" TextColor="White" Grid.Row="4" Grid.Column="1" Clicked="btnR41_Clicked"/>
+            <Button x:Name="btnR40" Text="Off" BackgroundColor="Red" TextColor="White" Grid.Row="4" Grid.Column="2" Clicked="btnR40_Clicked"/>
+            <Label x:Name="lblER4" Grid.Row="4" Grid.Column="3"/>
+
+            <Label x:Name="lblB" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+            <Button x:Name="btnB1" Text="On" BackgroundColor="Green" TextColor="White" Grid.Row="5" Grid.Column="1" Clicked="btnB1_Clicked"/>
+            <Button x:Name="btnB0" Text="Off" BackgroundColor="Red" TextColor="White" Grid.Row="5" Grid.Column="2" Clicked="btnB0_Clicked"/>
+            <Label x:Name="lblEB" Grid.Row="5" Grid.Column="3" VerticalOptions="Center"/>
+
+            <Label x:Name="lblM" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+            <Label x:Name="lblEM" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
+
+            <Label Text="Mensajes"  Grid.Row="7" Grid.Column="0" VerticalOptions="Center"/>
+            <ListView x:Name="lstLog" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+        </Grid>
+    </ContentPage>
+</TabbedPage>

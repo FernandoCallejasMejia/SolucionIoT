@@ -1,0 +1,33 @@
+﻿@page
+@model SolucionIoT.Web.Pages.NuevoDispositivoModel
+@{
+    ViewData["Title"] = "NuevoDispositivo";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<h1>Nuevo Dispositivo</h1>
+@if (Model.Mensaje != "")
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.Mensaje
+    </div>
+}
+<form method="post">
+    <div class="form-group">
+        <label>Ubicacion</label>
+        <input type="text" class="form-text" asp-for="@Model.Dispositivo.Ubicacion" />
+        <label>Uso Relevador 1</label>
+        <input type="text" class="form-text" asp-for="@Model.Dispositivo.UsoRelevador1" />
+        <label>Uso Relevador 2</label>
+        <input type="text" class="form-text" asp-for="@Model.Dispositivo.UsoRelevador2" />
+        <label>Uso Relevador 3</label>
+        <input type="text" class="form-text" asp-for="@Model.Dispositivo.UsoRelevador3" />
+        <label>Uso Relevador 4</label>
+        <input type="text" class="form-text" asp-for="@Model.Dispositivo.UsoRelevador4" />
+        <label>Uso Buzzer</label>
+        <input type="text" class="form-text" asp-for="@Model.Dispositivo.UsoBuzzer" />
+        <label>Ubicacion PIR</label>
+        <input type="text" class="form-text" asp-for="@Model.Dispositivo.UbicacionPIR" />
+        <input type="hidden" asp-for="@Model.Dispositivo.IdUsuario"/>
+        <input type="submit" class="btn btn-primary" value="Guardar"/>
+    </div>
+</form>

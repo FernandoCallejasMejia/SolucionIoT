@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SolucionIoT.BIZ.API\SolucionIoT.BIZ.API.csproj" />
+    <ProjectReference Include="..\SolucionIoT.BIZ\SolucionIoT.BIZ.csproj" />
+    <ProjectReference Include="..\SolucionIoT.COMMON\SolucionIoT.COMMON.csproj" />
+    <ProjectReference Include="..\SolucionIoT.Tools\SolucionIoT.Tools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenNETCF.MQTT" Version="1.0.17253" />
+  </ItemGroup>
+
+</Project>

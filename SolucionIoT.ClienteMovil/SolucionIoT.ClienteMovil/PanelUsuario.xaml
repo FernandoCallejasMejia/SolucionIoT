@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:SolucionIoT.COMMON.Modelos;assembly=SolucionIoT.COMMON"
+             x:Class="SolucionIoT.ClienteMovil.PanelUsuario" Title="Mis Dispositivos">
+    <ContentPage.BindingContext>
+        <models:PanelUsuarioModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Dispositivos}" x:Name="lstDispositivos" ItemSelected="lstDispositivos_ItemSelected" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="Ubicacion:" Grid.Row="0" Grid.Column="0"/>
+                            <Label Text="{Binding Ubicacion}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                            <Label Text="R1:" Grid.Row="1" Grid.Column="0"/>
+                            <Label Text="{Binding UsoRelevador1}" Grid.Row="1" Grid.Column="1"/>
+
+                            <Label Text="R2:" Grid.Row="1" Grid.Column="2"/>
+                            <Label Text="{Binding UsoRelevador2}" Grid.Row="1" Grid.Column="4"/>
+
+                            <Label Text="R3:" Grid.Row="2" Grid.Column="0"/>
+                            <Label Text="{Binding UsoRelevador3}" Grid.Row="2" Grid.Column="1"/>
+
+                            <Label Text="R4:" Grid.Row="2" Grid.Column="2"/>
+                            <Label Text="{Binding UsoRelevador4}" Grid.Row="2" Grid.Column="3"/>
+
+                            <Label Text="B:" Grid.Row="3" Grid.Column="0"/>
+                            <Label Text="{Binding UsoBuzzer}" Grid.Row="3" Grid.Column="1"/>
+
+                            <Label Text="PIR:" Grid.Row="3" Grid.Column="2"/>
+                            <Label Text="{Binding UbicacionPIR}" Grid.Row="3" Grid.Column="3"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

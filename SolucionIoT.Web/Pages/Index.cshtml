@@ -1,0 +1,54 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                  <h1 class="display-4">Plataforma IoT de monitore de casa habitacion</h1>
+                  <p class="lead">Monitorea y administra los sensores y acutadores de tu casas desde internet.</p>
+                  <hr class="my-4">
+                  <p>Instituto Tecnologico superior de huichapan</p>
+            </div>
+            <div class="col-sm">
+                 <div class="container">
+                     <h2>Inicia Sesion</h2>
+                     <div class="row">
+                       <form action="/" method="post">
+                         <div class="col">
+                         Correo:<input type="email" asp-for="Login.Correo" class="form-control" placeholder="Usuario@Correo.com" required/><br/>
+                         </div>
+                         <div class="col">
+                         Contraseña:<input type="password" asp-for="Login.Password" class="form-control" placeholder="Contraseña" required/><br/>             
+                         </div>
+                         <div class="col">
+                             <input type="hidden" asp-for="EsLogin" value="true" />
+                            <input type="submit" class="btn btn-success" value="Iniciar Sesion"/>
+                         </div>
+                         <div class="row">
+                             @if (Model.Error != null)
+                             {
+                                 <div class="alert alert-danger" role="alert">
+                                    @Model.Error
+                                  </div>
+                             }
+                         </div>
+                       </form>
+                     </div>
+                         <div class="row">
+                           <div class="col">
+                            <form method="post">
+                                     <input type="hidden" asp-for="EsLogin" value="false" />
+                                    <input type="submit" class="btn btn-primary" value="Crear Sesion"/>
+                            </form>
+                           </div>
+                         </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+</div>

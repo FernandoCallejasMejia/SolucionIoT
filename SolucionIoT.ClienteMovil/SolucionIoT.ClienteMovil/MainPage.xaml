@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:SolucionIoT.COMMON.Modelos;assembly=SolucionIoT.COMMON"
+             x:Class="SolucionIoT.ClienteMovil.MainPage" Title="Solucion IoT">
+    <ContentPage.BindingContext>
+        <models:LoginModel/>
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height=".35*"/>
+        </Grid.RowDefinitions>
+        <Image Source="iot.jpg" Grid.Row="0"/>
+        <Label Text="Email" Grid.Row="1" HorizontalOptions="Center"/>
+        <Entry Text="{Binding Correo}" Margin="5,0" Grid.Row="2" HorizontalTextAlignment="Center"/>
+        <Label Text="Password" Grid.Row="3" HorizontalOptions="Center"/>
+        <Entry Text="{Binding Password}" Margin="5,0" IsPassword="True" Grid.Row="4" HorizontalTextAlignment="Center"/>
+        <Button Text="Iniciar Sesion" x:Name="btnIniciarSesion" Clicked="btnIniciarSesion_Clicked" Margin="15,0" Grid.Row="5" BackgroundColor="Green" TextColor="White"/>
+        <Label Text="Powered By Team Kong" Grid.Row="6" HorizontalOptions="Center" VerticalOptions="End"/>
+
+    </Grid>
+
+</ContentPage>
