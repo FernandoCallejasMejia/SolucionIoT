@@ -49,7 +49,8 @@ namespace SolucionIoT.Web.Pages
                     };
                     ClaimsIdentity identity = new ClaimsIdentity(claims, "cookie");
                     ClaimsPrincipal principal = new ClaimsPrincipal(identity);
-                    await HttpContext.SignInAsync(scheme: "Seguridad",principal:principal, properties: new AuthenticationProperties{
+                    await HttpContext.SignInAsync(scheme: "Seguridad",principal:principal, properties: new AuthenticationProperties
+                    {
                         ExpiresUtc=DateTime.UtcNow.AddMinutes(10)
                     });
                     return RedirectToPage("PanelUsuario", new { idUsuario = u.Id });
