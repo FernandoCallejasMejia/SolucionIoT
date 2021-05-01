@@ -26,7 +26,7 @@ namespace SolucionIoT.ClienteMovil
             if (u!=null)
             {
                 //enviar al panel de usuario
-                DisplayAlert("Solucion IoT", $"Biemvenido {u.Nombre}", "Ok");
+                DisplayAlert("Solucion IoT", $"Bienvenido {u.Nombre}", "Ok");
                 Navigation.PushAsync(new PanelUsuario(u));
             }
             else

@@ -20,9 +20,9 @@ namespace SolucionIoT.Web
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            MqttService.Conectar("WEBKobra" + r.Next(0, 10000),"broker.hivemq.com");
-            MqttService.Conectado += MqttService_Conectado;
-            MqttService.MensajeRecibido += MqttService_MensajeRecibido;
+            //MqttService.Conectar("WEBKobra" + r.Next(0, 10000),"broker.hivemq.com");
+            //MqttService.Conectado += MqttService_Conectado;
+            //MqttService.MensajeRecibido += MqttService_MensajeRecibido;
         }
 
         private void MqttService_Conectado(object sender, string e)

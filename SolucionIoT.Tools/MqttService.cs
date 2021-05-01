@@ -61,10 +61,10 @@ namespace SolucionIoT.Tools
 
         private static void Connect()
         {
-            _ = Task.Run(() =>
-            {
-                mqtt.Connect(NombreCliente);
-            }); 
+            //_ = Task.Run(() =>
+            //{
+            //    mqtt.Connect(NombreCliente);
+            //}); 
         }
 
         public static void Suscribir(string topic)

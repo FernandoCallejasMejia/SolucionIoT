@@ -19,7 +19,8 @@ namespace SolucionIoT.BIZ.API
         public GenericManager()
         {
             client = new HttpClient();
-            client.BaseAddress =new Uri( "http://localhost:4430/");
+            //client.BaseAddress =new Uri( "http://localhost:4430/");
+            client.BaseAddress = new Uri("http://solucioniotkobra.somee.com/");
             uriApi = "api/" + typeof(T).Name;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
