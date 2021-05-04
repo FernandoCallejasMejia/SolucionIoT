@@ -40,7 +40,7 @@ namespace SolucionIoT.ClienteMovil
             model.LecturasDelDispositivo = FactoryManager.LecturaManager().LecturasDelDispositivo(model.DispositivoSeleccionado.Id).OrderBy(e => e.FechaHora).ToList();            
             lstLecturas.ItemsSource = null;
             lstLecturas.ItemsSource = model.LecturasDelDispositivo;
-            topico = "SolucionIoT/" + model.DispositivoSeleccionado.Id;
+            topico = "SolucionIoTKobra/" + model.DispositivoSeleccionado.Id;
             LlenarComandos();
             Graficar();
             mensajeRecibido = null;
@@ -94,7 +94,7 @@ namespace SolucionIoT.ClienteMovil
                 return true;
             });
             Thread.Sleep(2000);
-            MqttService.Suscribir("SolucionIoT/" + model.DispositivoSeleccionado.Id);
+            MqttService.Suscribir("SolucionIoTKobra/" + model.DispositivoSeleccionado.Id);
 
         }
 

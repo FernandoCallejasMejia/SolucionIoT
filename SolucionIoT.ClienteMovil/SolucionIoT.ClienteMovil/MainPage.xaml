@@ -22,7 +22,7 @@
         <Label Text="Password" Grid.Row="3" HorizontalOptions="Center"/>
         <Entry Text="{Binding Password}" Margin="5,0" IsPassword="True" Grid.Row="4" HorizontalTextAlignment="Center"/>
         <Button Text="Iniciar Sesion" x:Name="btnIniciarSesion" Clicked="btnIniciarSesion_Clicked" Margin="15,0" Grid.Row="5" BackgroundColor="Green" TextColor="White"/>
-        <Label Text="Powered By Team Kong" Grid.Row="6" HorizontalOptions="Center" VerticalOptions="End"/>
+        <Label Text="Powered By TeamKobra" Grid.Row="6" HorizontalOptions="Center" VerticalOptions="End"/>
 
     </Grid>
 

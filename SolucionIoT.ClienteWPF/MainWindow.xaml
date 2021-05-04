@@ -28,6 +28,6 @@
         <Label Grid.Row="3" Content="Password" HorizontalAlignment="Center"/>
         <PasswordBox Margin="25,0" Grid.Row="4" xamlHelpers:Secure.Password="{Binding Password}"/>
         <Button Grid.Row="5" Content="Iniciar Sesion" Margin="50,0" Background="Green" Foreground="White" x:Name="btnIniciarSesion" Click="btnIniciarSesion_Click"/>
-        <Label Grid.Row="7" Content="Powered By Team Kong"/>
+        <Label Grid.Row="7" Content="Powered By TeamKobra"/>
     </Grid>
 </Window>

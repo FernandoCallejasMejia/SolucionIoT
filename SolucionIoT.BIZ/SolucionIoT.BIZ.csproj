@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.12.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SolucionIoT.COMMON\SolucionIoT.COMMON.csproj" />
     <ProjectReference Include="..\SolucionIoT.DAL\SolucionIoT.DAL.csproj" />
   </ItemGroup>

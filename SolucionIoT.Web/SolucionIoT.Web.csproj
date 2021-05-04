@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.12.2" />
     <PackageReference Include="OpenNETCF.MQTT" Version="1.0.17253" />
   </ItemGroup>
 

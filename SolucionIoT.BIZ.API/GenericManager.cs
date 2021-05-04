@@ -19,7 +19,7 @@ namespace SolucionIoT.BIZ.API
         public GenericManager()
         {
             client = new HttpClient();
-            //client.BaseAddress =new Uri( "http://localhost:4430/");
+            //client.BaseAddress =new Uri( "http://localhost:44340/");
             client.BaseAddress = new Uri("http://solucioniotkobra.somee.com/");
             uriApi = "api/" + typeof(T).Name;
             client.DefaultRequestHeaders.Accept.Clear();

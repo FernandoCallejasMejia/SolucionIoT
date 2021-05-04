@@ -28,6 +28,7 @@
             <Label Content="Control" />
             <Button x:Name="btnActualizar" Click="btnActualizar_Click" Content="Actualizar Estados" Margin="50,0"/>
         </StackPanel>
+        
         <Grid Grid.Row="3" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -59,7 +60,10 @@
                     <Label x:Name="lblPIR"/>
                     <Label x:Name="lblEPIR"/>
                 </StackPanel>
+                <Label Content="Comando a enviar: "/>
+                <ComboBox x:Name="cmbOpciones" SelectionChanged="cmbOpciones_SelectionChanged"/>
             </StackPanel>
+            <ListView Grid.Column="1" x:Name="lstMensajes"/>
         </Grid>
 
 
@@ -115,7 +119,7 @@
             <DataGrid ItemsSource="{Binding LecturasDelDispositivo}" Grid.Row="1" x:Name="dtgLecturas" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Fecha Hora" Binding="{Binding FechaHora}"/>
-                    <DataGridTextColumn Header="Temperatura C" Binding="{Binding Temperatura}"/>
+                    <DataGridTextColumn Header="Temperatura °C" Binding="{Binding Temperatura}"/>
                     <DataGridTextColumn Header="Humedad" Binding="{Binding Humedad}"/>
                     <DataGridTextColumn Header="Luminosidad" Binding="{Binding Luminosidad}"/>
                 </DataGrid.Columns>

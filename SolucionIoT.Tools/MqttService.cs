@@ -56,15 +56,15 @@ namespace SolucionIoT.Tools
         private static void Mqtt_Connected(object sender, EventArgs e)
         {
             Debug.WriteLine($"Conectado a MQTT");
-            Conectado(null, "Conectado como "+NombreCliente);
+            Conectado(null, "Conectado como " + NombreCliente);
         }
 
         private static void Connect()
         {
-            //_ = Task.Run(() =>
-            //{
-            //    mqtt.Connect(NombreCliente);
-            //}); 
+            _ = Task.Run(() =>
+            {
+                mqtt.Connect(NombreCliente);
+            });
         }
 
         public static void Suscribir(string topic)

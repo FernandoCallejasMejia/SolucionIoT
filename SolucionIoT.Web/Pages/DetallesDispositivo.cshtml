@@ -71,4 +71,24 @@
     });
 </script>*@
 
-
+<script>
+    new Morris.Line({
+  // ID of the element in which to draw the chart.
+  element: 'myfirstchart',
+  // Chart data records -- each entry in this array corresponds to a point on
+  // the chart.
+  data: [
+    @foreach (var item in Model.Lecturas)
+    {
+        @:{ fecha: '@string.Format("{0:u}",item.FechaHora)', Temperatura: @item.Temperatura,Humedad: @item.Humedad ,Luminosidad: @item.Luminosidad  },
+    }
+  ],
+  // The name of the data record attribute that contains x-values.
+  xkey: 'fecha',
+  // A list of names of data record attributes that contain y-values.
+  ykeys: ['Temperatura','Humedad','Luminosidad'],
+  // Labels for the ykeys -- will be displayed when you hover over the
+  // chart.
+  labels: ['Temperatura','Humedad','Luminosidad']
+});
+</script>
